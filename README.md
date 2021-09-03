@@ -22,7 +22,7 @@ The folder dataset contains the following files.
     * if_mulit_commit = 1 means a commit is non-atomic.
   
 * maintenance type and expression way.xlsx
-    * It contains the results of our RQ2: the presentation of why and what, as well as links to maintenance dimensions.
+    * It contains the results of our RQ2: the expression ways of Why and What, as well as links to maintenance types.
   
 ## CommitMessage (Scripts)
 The folder scripts contains the following files.
