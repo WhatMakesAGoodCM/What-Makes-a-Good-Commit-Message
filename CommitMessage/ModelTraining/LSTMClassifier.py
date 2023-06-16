@@ -253,19 +253,20 @@ def myDataProcess(dataFile, sampleRate, labelSelected):
         lambda x: 1 if x == 0 else (0 if x == 1.0 else (0 if x == 2.0 else (1 if x == 3.0 else 0))))
 
     print("load data successfully!")
-    ifAllTextFile = labeledDF["if_all_text_file"]
-    ifAllCodeFile = labeledDF["if_all_code_file"]
-    changeLines = labeledDF["change_lines"]
-    developerExpertise = labeledDF["developer_expertise"]
-    commitDatePos = labeledDF["commit_date_position"]
+    # ifAllTextFile = labeledDF["if_all_text_file"]
+    # ifAllCodeFile = labeledDF["if_all_code_file"]
+    # changeLines = labeledDF["change_lines"]
+    # developerExpertise = labeledDF["developer_expertise"]
+    # commitDatePos = labeledDF["commit_date_position"]
     messages = list(labeledDF['new_message1'].array)
     if labelSelected == 2:
         label = np.array(whyLabels)
     else:
         label = np.array(whatLabels)
 
-    return messages, label, np.array(ifAllTextFile), np.array(ifAllCodeFile), np.array(changeLines), np.array(
-        developerExpertise), np.array(commitDatePos)
+    # return messages, label, np.array(ifAllTextFile), np.array(ifAllCodeFile), np.array(changeLines), np.array(
+    #     developerExpertise), np.array(commitDatePos)
+    return messages, label
 
 
 if __name__ == '__main__':
@@ -276,7 +277,9 @@ if __name__ == '__main__':
         print("Why Message")
     else:
         print("What Message")
-    text, label, ifAllTextFile, ifAllCodeFile, changeLines, developerExpertise, commitDatePos = myDataProcess(
+    # text, label, ifAllTextFile, ifAllCodeFile, changeLines, developerExpertise, commitDatePos = myDataProcess(
+    #     "message_sample.csv", model_config.sampleRate, model_config.labelSelected)
+    text, label= myDataProcess(
         "message_sample.csv", model_config.sampleRate, model_config.labelSelected)
     result_comments = text
     tokenizer = BertTokenizer.from_pretrained(model_config.bert_path)
